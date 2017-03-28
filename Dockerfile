@@ -98,16 +98,16 @@ RUN dpkg-reconfigure --frontend=noninteractive locales
 # User we will run under
 #
 RUN useradd -ms /bin/bash user
-RUN sudo -u user -H bash -c "mkdir /home/user/.electron"
-RUN sudo -u user -H bash -c "mkdir /home/user/.npm"
+RUN echo "user ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+USER user
+
+RUN mkdir /home/user/.electron
+RUN mkdir /home/user/.npm
 
 #
 # Initial wine setup
 #
-RUN sudo \
-  -u user \
-  -H bash \
-  -c "wineboot --init"
+RUN wineboot --init
 
 #
 # Local mount
