@@ -60,7 +60,10 @@ RUN apt-get update \
     mono-devel \
     ca-certificates-mono \
     locales \
-    libgconf-2-4
+    libgconf-2-4 \
+    libsecret-1-dev \
+    g++ \
+    dbus-x11
 
 #
 # Desktop environment and tools
