@@ -16,7 +16,7 @@ RUN apt-get update \
 #
 # Node.js 6 Repository
 #
-RUN curl -sL https://deb.nodesource.com/setup_6.x \
+RUN curl -sL https://deb.nodesource.com/setup_7.x \
   | bash
 
 #
@@ -87,6 +87,11 @@ RUN apt-get update \
 # Symlink vim-tiny as vim
 #
 RUN ln -s /usr/bin/vim.tiny /usr/bin/vim
+
+#
+# Upgrade npm to v5
+#
+RUN npm upgrade -g npm@5
 
 #
 # Locale configuration
